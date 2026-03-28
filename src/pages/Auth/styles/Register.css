@@ -1,0 +1,117 @@
+.register-page{
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+background:linear-gradient(180deg,#ffffff,#f8f9fb);
+font-family:Inter,system-ui,sans-serif;
+padding:20px;
+}
+
+/* CARD */
+
+.register-card{
+width:420px;
+max-width:95%;
+background:white;
+padding:40px;
+border-radius:14px;
+box-shadow:0 20px 40px rgba(0,0,0,0.08);
+}
+
+/* HEADER */
+
+.register-header{
+text-align:center;
+margin-bottom:30px;
+}
+
+.register-header h1{
+font-size:28px;
+font-weight:700;
+margin-bottom:6px;
+}
+
+.register-header p{
+color:#6b7280;
+font-size:14px;
+}
+
+/* FORM */
+
+.register-form{
+display:flex;
+flex-direction:column;
+gap:16px;
+}
+
+/* INPUT GROUP */
+
+.input-group{
+position:relative;
+display:flex;
+align-items:center;
+}
+
+.input-icon{
+position:absolute;
+left:12px;
+color:#6b7280;
+}
+
+.input-group input{
+width:100%;
+padding:12px 12px 12px 40px;
+border:1px solid #e5e7eb;
+border-radius:8px;
+font-size:14px;
+outline:none;
+transition:.2s ease;
+}
+
+.input-group input:focus{
+border-color:#2563eb;
+box-shadow:0 0 0 2px rgba(37,99,235,0.15);
+}
+
+/* BUTTON */
+
+.btn-primary{
+background:#2563eb;
+color:white;
+border:none;
+padding:12px;
+border-radius:8px;
+font-size:14px;
+font-weight:500;
+cursor:pointer;
+transition:.2s ease;
+}
+
+.btn-primary:hover{
+background:#1d4ed8;
+}
+
+.big{
+margin-top:10px;
+}
+
+/* LOGIN LINK */
+
+.login-link{
+text-align:center;
+margin-top:20px;
+font-size:14px;
+color:#6b7280;
+}
+
+.login-link a{
+margin-left:6px;
+color:#2563eb;
+text-decoration:none;
+font-weight:500;
+}
+
+.login-link a:hover{
+text-decoration:underline;
+}

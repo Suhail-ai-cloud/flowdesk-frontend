@@ -1,0 +1,172 @@
+/* Page containers */
+
+.add-member-card,
+.members-card{
+background:white;
+border-radius:12px;
+padding:24px;
+box-shadow:0 6px 18px rgba(0,0,0,0.05);
+margin-bottom:24px;
+}
+
+/* header */
+
+.add-member-header{
+display:flex;
+align-items:center;
+gap:8px;
+font-weight:600;
+margin-bottom:16px;
+}
+
+.add-member-icon{
+color:#2563eb;
+}
+
+/* controls */
+
+.add-member-controls{
+display:flex;
+gap:12px;
+}
+
+/* input */
+
+.input-modern{
+flex:1;
+padding:10px 12px;
+border:1px solid #e5e7eb;
+border-radius:8px;
+font-size:14px;
+outline:none;
+transition:all .2s ease;
+}
+
+.input-modern:focus{
+border-color:#2563eb;
+box-shadow:0 0 0 2px rgba(37,99,235,0.15);
+}
+
+/* members list */
+
+.members-list{
+display:flex;
+flex-direction:column;
+gap:12px;
+margin-top:16px;
+}
+
+.member-row{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:12px;
+border-radius:10px;
+transition:background .2s ease;
+}
+
+.member-row:hover{
+background:#f8fafc;
+}
+
+/* left side */
+
+.member-left{
+display:flex;
+align-items:center;
+gap:12px;
+}
+
+.avatar-circle{
+width:36px;
+height:36px;
+border-radius:50%;
+background:#2563eb;
+color:white;
+display:flex;
+align-items:center;
+justify-content:center;
+font-weight:600;
+}
+
+.member-meta{
+display:flex;
+flex-direction:column;
+}
+
+.member-name{
+font-weight:500;
+}
+
+/* role badge */
+
+.role-badge{
+font-size:12px;
+padding:2px 8px;
+border-radius:6px;
+margin-top:2px;
+width:fit-content;
+}
+
+.role-badge.owner{
+background:#fef3c7;
+color:#92400e;
+}
+
+.role-badge.member{
+background:#e0e7ff;
+color:#3730a3;
+}
+
+/* buttons */
+
+.btn-primary{
+background:#2563eb;
+color:white;
+border:none;
+padding:10px 16px;
+border-radius:8px;
+cursor:pointer;
+font-weight:500;
+transition:all .2s ease;
+}
+
+.btn-primary:hover{
+background:#1d4ed8;
+}
+
+.btn-icon-danger{
+background:none;
+border:none;
+cursor:pointer;
+color:#ef4444;
+font-size:18px;
+transition:transform .2s ease;
+}
+
+.btn-icon-danger:hover{
+transform:scale(1.1);
+}
+
+/* empty state */
+
+.empty-state{
+color:#6b7280;
+padding:16px;
+}
+
+/* responsive */
+
+@media(max-width:640px){
+
+.add-member-controls{
+flex-direction:column;
+}
+
+.member-row{
+flex-direction:column;
+align-items:flex-start;
+gap:8px;
+}
+
+}

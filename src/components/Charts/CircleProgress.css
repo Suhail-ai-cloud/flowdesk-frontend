@@ -1,0 +1,27 @@
+.circle-card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+}
+
+.circle-wrapper {
+  position: relative;
+  width: 140px;
+  margin: auto;
+}
+
+.circle-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 18px;
+  font-weight: 600;
+  transform: translate(-50%, -50%);
+}
+
+.circle-label {
+  margin-top: 16px;
+  color: #6b7280;
+}

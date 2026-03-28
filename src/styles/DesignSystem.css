@@ -1,0 +1,183 @@
+/* ================= ROOT COLORS ================= */
+:root {
+  --color-bg: #0f172a;
+  --color-surface: #1e293b;
+  --color-border: #334155;
+  --color-text: #e2e8f0;
+
+  --blue-primary: #2563eb;
+  --blue-hover: #1d4ed8;
+
+  --green-success: #22c55e;
+  --red-danger: #dc2626;
+  --red-hover: #b91c1c;
+}
+
+/* ================= GLOBAL RESET ================= */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+/* ================= PAGE LAYOUT ================= */
+.page-container {
+  padding: 32px;
+  min-height: 100vh;
+}
+
+.section-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+/* ================= HEADINGS ================= */
+.page-title {
+  color: var(--blue-primary);
+  margin-bottom: 10px;
+}
+
+.section-title {
+  color: var(--blue-primary);
+  margin-bottom: 12px;
+}
+
+/* ================= BUTTON SYSTEM ================= */
+button {
+  border: none;
+  border-radius: 6px;
+  padding: 8px 14px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.2s ease;
+}
+
+.btn-primary {
+  background: var(--blue-primary);
+  color: white;
+}
+.btn-primary:hover {
+  background: var(--blue-hover);
+}
+
+.btn-secondary {
+  background: #475569;
+  color: white;
+}
+
+.btn-success {
+  background: var(--green-success);
+  color: white;
+}
+
+.btn-danger {
+  background: var(--red-danger);
+  color: white;
+}
+.btn-danger:hover {
+  background: var(--red-hover);
+}
+
+.btn-small {
+  padding: 4px 8px;
+  font-size: 12px;
+}
+
+/* ================= INPUT SYSTEM ================= */
+.input-field {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid var(--color-border);
+  background: var(--color-bg);
+  color: white;
+  margin-bottom: 10px;
+}
+
+textarea.input-field {
+  min-height: 80px;
+  resize: vertical;
+}
+
+/* ================= GRID SYSTEM ================= */
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+/* ================= MODAL SYSTEM ================= */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: var(--color-surface);
+  border-radius: 10px;
+  padding: 22px;
+  border: 1px solid var(--color-border);
+  width: 600px;
+  max-width: 95%;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+/* ================= CARD SYSTEM ================= */
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  padding: 16px;
+  border-radius: 10px;
+  transition: 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+}
+
+/* ================= SCROLLBAR ================= */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--blue-primary);
+  border-radius: 10px;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+  .page-container {
+    padding: 18px;
+  }
+
+  .grid-2,
+  .grid-3 {
+    grid-template-columns: 1fr;
+  }
+}

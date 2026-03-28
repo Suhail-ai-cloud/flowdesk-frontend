@@ -1,0 +1,44 @@
+.upload-box{
+border:2px dashed #e5e7eb;
+padding:20px;
+border-radius:12px;
+display:flex;
+align-items:center;
+justify-content:center;
+gap:8px;
+cursor:pointer;
+margin-bottom:16px;
+color:#6b7280;
+transition:.2s;
+}
+
+.upload-box:hover{
+border-color:#2563eb;
+color:#2563eb;
+background:#f8fafc;
+}
+
+.attachments-list{
+display:flex;
+flex-direction:column;
+gap:10px;
+}
+
+.file-item{
+display:flex;
+align-items:center;
+gap:10px;
+background:#f8f9fb;
+padding:10px;
+border-radius:8px;
+}
+
+.file-item a{
+flex:1;
+text-decoration:none;
+color:#374151;
+}
+
+.file-item a:hover{
+color:#2563eb;
+}
