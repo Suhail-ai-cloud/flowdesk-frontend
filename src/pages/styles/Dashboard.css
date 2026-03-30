@@ -1,26 +1,38 @@
 .dashboard-container {
   padding: 32px;
-  background: #f8f9fb;
+  background: #f4f6fb;
   min-height: 100vh;
   font-family: Inter, system-ui, sans-serif;
 }
 
+/* HEADER */
+.dashboard-header {
+  margin-bottom: 32px;
+}
+
 .dashboard-header h1 {
-  font-size: 26px;
+  font-size: 28px;
   font-weight: 600;
-  margin-bottom: 4px;
+  color: #111827;
+}
+
+.dashboard-header h1 span {
+  color: #4f46e5;
 }
 
 .dashboard-header p {
   color: #6b7280;
-  margin-bottom: 32px;
+  margin-top: 6px;
+  font-size: 14px;
 }
 
+/* LOADING */
 .dashboard-loading {
   padding: 40px;
   font-size: 18px;
 }
 
+/* STAT GRID */
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -28,24 +40,35 @@
   margin-bottom: 40px;
 }
 
+/* ANALYTICS CARD */
 .analytics-section {
   background: white;
-  border-radius: 12px;
-  padding: 24px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+  border-radius: 16px;
+  padding: 28px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+  transition: 0.3s;
 }
 
-.section-header {
-  margin-bottom: 24px;
+.analytics-section:hover {
+  transform: translateY(-2px);
 }
 
 .section-header h3 {
   font-size: 18px;
   font-weight: 600;
+  color: #111827;
 }
 
+/* CIRCLE GRID */
 .circle-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+  grid-template-columns: repeat(auto-fit, minmax(180px,1fr));
   gap: 24px;
+}
+
+/* EMPTY STATE */
+.empty-state {
+  margin-top: 20px;
+  color: #9ca3af;
+  font-size: 14px;
 }

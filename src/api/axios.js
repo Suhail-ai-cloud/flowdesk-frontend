@@ -1,32 +1,57 @@
 import axios from "axios";
+import { showLoader, hideLoader } from "../utils/loader";
 
 const api = axios.create({
   baseURL: import.meta.env.VITE_API_BASE_URL,
 });
 
-// 🔑 Attach access token
-api.interceptors.request.use((config) => {
+/* =========================
+   REQUEST INTERCEPTOR
+========================= */
 
-  const token = localStorage.getItem("access");
+api.interceptors.request.use(
+  (config) => {
 
-  if (token) {
-    config.headers.Authorization = `Bearer ${token}`;
+    // 🔥 START GLOBAL LOADER
+    showLoader();
+
+    // 🔑 Attach access token
+    const token = localStorage.getItem("access");
+
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
+
+    return config;
+  },
+  (error) => {
+    hideLoader();
+    return Promise.reject(error);
   }
-
-  return config;
-});
+);
 
 
-// 🔄 Auto refresh token
+/* =========================
+   RESPONSE INTERCEPTOR
+========================= */
+
 api.interceptors.response.use(
 
-  res => res,
+  // ✅ SUCCESS
+  (response) => {
+    hideLoader(); // 🔥 STOP LOADER
+    return response;
+  },
 
-  async (err) => {
+  // ❌ ERROR
+  async (error) => {
 
-    const originalRequest = err.config;
+    hideLoader(); // 🔥 STOP LOADER
 
-    if (err.response?.status === 401 && !originalRequest._retry) {
+    const originalRequest = error.config;
+
+    // 🔄 TOKEN REFRESH
+    if (error.response?.status === 401 && !originalRequest._retry) {
 
       originalRequest._retry = true;
 
@@ -39,22 +64,25 @@ api.interceptors.response.use(
           { refresh }
         );
 
+        // 🔑 Save new access token
         localStorage.setItem("access", res.data.access);
 
+        // 🔁 Retry original request
         originalRequest.headers.Authorization =
           `Bearer ${res.data.access}`;
 
         return api(originalRequest);
 
-      } catch (error) {
+      } catch (refreshError) {
 
+        // ❌ Refresh failed → logout
         localStorage.clear();
         window.location.href = "/login";
 
       }
     }
 
-    return Promise.reject(err);
+    return Promise.reject(error);
   }
 );
 

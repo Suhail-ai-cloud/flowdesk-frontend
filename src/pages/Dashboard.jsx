@@ -57,6 +57,9 @@
 //     </div>
 //   );
 // }
+
+
+
 import React, { useEffect, useState } from "react";
 import api from "../api/axios";
 import StatCard from "../components/StatCard";
@@ -65,7 +68,7 @@ import { FiCheckSquare } from "react-icons/fi";
 import { FiAlertTriangle } from "react-icons/fi";
 import { FiClipboard } from "react-icons/fi";
 import "./styles/Dashboard.css";
-
+import { FiCheckCircle, FiAlertCircle, FiLayers } from "react-icons/fi";
 export default function Dashboard() {
   const [data, setData] = useState(null);
 
@@ -94,10 +97,19 @@ export default function Dashboard() {
   return (
     <div className="dashboard-container">
 
-      <div className="dashboard-header">
-        <h1>Dashboard</h1>
-        <p>Your task analytics overview</p>
-      </div>
+<div className="dashboard-header">
+
+  <div className="workspace-badge">
+    🏢 {data.company_name || "Your Workspace"}
+  </div>
+
+  <h1>
+    Welcome back, <span>{data.user_name || "User"}</span>
+  </h1>
+
+  <p>Here’s what’s happening with your tasks today</p>
+
+</div>
 
       {/* STATISTICS */}
       <div className="stats-grid">
@@ -105,20 +117,25 @@ export default function Dashboard() {
         <StatCard
           title="Total Tasks"
           value={data.total_tasks}
-          icon={<FiClipboard />}
+          icon={<FiLayers  />}
         />
 
         <StatCard
           title="Completed"
           value={data.completed_tasks}
-          icon={<FiCheckSquare />}
+          icon={<FiCheckCircle />}
         />
 
         <StatCard
           title="Overdue"
           value={data.overdue_tasks}
-          icon={<FiAlertTriangle />}
+          icon={<FiAlertCircle  />}
         />
+        {data.total_tasks === 0 && (
+  <div className="empty-state">
+    🚀 No tasks yet. Create your first project to get started.
+  </div>
+)}
 
       </div>
 
@@ -138,12 +155,20 @@ export default function Dashboard() {
 
           <CircleProgress
             label="Pending Ratio"
-            value={Math.round((data.pending_tasks / data.total_tasks) * 100)}
+            value={
+  data.total_tasks > 0
+    ? Math.round((data.pending_tasks / data.total_tasks) * 100)
+    : 0
+}
           />
 
           <CircleProgress
             label="Overdue Ratio"
-            value={Math.round((data.overdue_tasks / data.total_tasks) * 100)}
+            value={
+  data.total_tasks > 0
+    ? Math.min(100, Math.round((data.overdue_tasks / data.total_tasks) * 100))
+    : 0
+}
           />
 
         </div>

@@ -62,10 +62,11 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 import { AuthProvider } from "./context/AuthContext";
-
+import { LoadingProvider } from "./context/LoadingContext";
 import Login from "./pages/Auth/Login";
 import Register from "./pages/Auth/Register";
 import Landing from "./pages/Landing";
+import GlobalLoader from "./components/GlobalLoader";
 
 import ProtectedRoute from "./components/ProtectedRoute";
 import Dashboard from "./pages/Dashboard";
@@ -78,6 +79,8 @@ import AppLayout from "./components/AppLayout";
 export default function App() {
   return (
     <AuthProvider>
+      <LoadingProvider>
+      <GlobalLoader />
       <Toaster position="top-right" />
 
       <BrowserRouter>
@@ -123,6 +126,7 @@ export default function App() {
 
         </Routes>
       </BrowserRouter>
+      </LoadingProvider>
     </AuthProvider>
   );
 }

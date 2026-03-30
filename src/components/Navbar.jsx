@@ -1,9 +1,10 @@
 import React, { useContext } from "react";
+import { NavLink } from "react-router-dom";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import NotificationBell from "./NotificationBell";
 
-import { FiHome, FiFolder, FiLogOut } from "react-icons/fi";
+import { FiHome, FiFolder, FiLogOut, FiUsers } from "react-icons/fi";
 
 import logo from "../assets/logo.png";   // <-- place your logo here
 
@@ -50,7 +51,11 @@ export default function Navbar() {
             <FiFolder />
             Projects
           </Link>
-          <Link to="/users">Users</Link>
+
+          <NavLink to="/users" className="nav-item">
+            <FiUsers />
+            <span>Users</span>
+          </NavLink>
 
         </nav>
 
